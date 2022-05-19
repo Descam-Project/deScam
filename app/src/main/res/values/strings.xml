@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">deScam</string>
     <string name="input_email">Before we continue, please input your email adress first</string>
-    <string name="email_hint">johndoe@mail.com</string>
+    <string name="email_hint">Email</string>
     <string name="submit_email">submit email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
