@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/bottom_nav_selector.xml" value="0.2055" />
+        <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1" />
+        <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/ic_scan.xml" value="0.1" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/ic_splash.xml" value="0.126" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/font/poppins_medium.xml" value="0.234375" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/activity_auth.xml" value="0.2" />
