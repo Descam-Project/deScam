@@ -4,8 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/bottom_nav_selector.xml" value="0.2055" />
-        <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.1" />
-        <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/ic_scan.xml" value="0.1" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/drawable/ic_splash.xml" value="0.126" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/font/poppins_medium.xml" value="0.234375" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/activity_auth.xml" value="0.2" />
@@ -13,10 +11,13 @@
         <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/activity_main.xml" value="0.14" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/fragment_result.xml" value="0.17074275362318841" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/fragment_scan.xml" value="0.17074275362318841" />
-        <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="..\:/Bangkit/deScam/app/src/main/res/layout/fragment_settings.xml" value="0.17074275362318841" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/menu-v26/bottom_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/menu/bottom_menu.xml" value="0.17192982456140352" />
         <entry key="..\:/Bangkit/deScam/app/src/main/res/menu/home_menu.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/drawable/ic_baseline_cloud_upload_24.xml" value="0.2835" />
+        <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/activity_auth.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/fragment_scan.xml" value="0.33" />
       </map>
     </option>
   </component>
