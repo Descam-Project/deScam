@@ -1,10 +1,10 @@
-package com.captvelsky.descam
+package com.captvelsky.descam.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.captvelsky.descam.R
 import com.captvelsky.descam.databinding.ActivityHomeBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,5 +24,10 @@ class HomeActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         homeNav.setupWithNavController(navController)
+    }
+
+    override fun onBackPressed() {
+        val count = supportFragmentManager.backStackEntryCount
+        if (count == 0) super.onBackPressed() else supportFragmentManager.popBackStack()
     }
 }
