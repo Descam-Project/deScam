@@ -1,4 +1,4 @@
-package com.captvelsky.descam
+package com.captvelsky.descam.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +19,7 @@ class AuthActivity : AppCompatActivity() {
         binding.btnAuth.setOnClickListener {
             Intent(this, HomeActivity::class.java).also {
                 startActivity(it)
+                finish()
             }
         }
     }

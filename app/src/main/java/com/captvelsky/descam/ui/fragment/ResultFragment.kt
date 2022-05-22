@@ -1,4 +1,4 @@
-package com.captvelsky.descam
+package com.captvelsky.descam.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,5 +21,15 @@ class ResultFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }
