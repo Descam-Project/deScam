@@ -8,4 +8,6 @@
     <string name="dark_mode">Dark mode</string>
     <string name="choose_picture">Choose from gallery</string>
     <string name="choose_another_picture">Choose another picture</string>
+    <string name="extract_text">Extract text</string>
+    <string name="extracted_text_result">[Extracted text result]</string>
 </resources>
