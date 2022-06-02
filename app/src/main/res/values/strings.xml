@@ -3,11 +3,14 @@
     <string name="input_email">Before we continue, please input your email address first</string>
     <string name="email_hint">Email</string>
     <string name="submit_email">submit email</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dark_mode">Dark mode</string>
     <string name="choose_picture">Choose from gallery</string>
     <string name="choose_another_picture">Choose another picture</string>
     <string name="extract_text">Extract text</string>
     <string name="extracted_text_result">[Extracted text result]</string>
+    <string name="tab_gallery">Gallery</string>
+    <string name="tab_text">Text</string>
+    <string name="upload">Upload</string>
+    <string name="scan_text_hint">Insert text here..</string>
 </resources>
