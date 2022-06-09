@@ -2,10 +2,15 @@
 <resources>
     <color name="red">#D4483A</color>
     <color name="orange">#D4953A</color>
+    <color name="pink">#FFC4BE</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="bg_color">#FFFFFF</color>
     <color name="text_color">#FF000000</color>
     <color name="text_bg">#D9D9D9</color>
-    <color name="bg_color">#FFFFFFFF</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="pink">#FFFFC4BE</color>
+    <color name="item_bg">#FFFBFE</color>
     <color name="navbar">#F9F9F9</color>
+
+    <color name="legal_color">#39EF3B</color>
+    <color name="illegal_color">#EC1F1F</color>
 </resources>
