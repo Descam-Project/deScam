@@ -13,4 +13,8 @@
     <string name="tab_text">Text</string>
     <string name="upload">Upload</string>
     <string name="scan_text_hint">Insert text here..</string>
+    <string name="email">Email</string>
+    <string name="checked_text">Lorem ipsum dolor sit amet</string>
+    <string name="status">Status :</string>
+    <string name="status_value">Legal/Illegal</string>
 </resources>
