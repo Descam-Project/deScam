@@ -1,5 +1,6 @@
 package com.captvelsky.descam.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +10,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import com.captvelsky.descam.databinding.FragmentSettingsBinding
+import com.captvelsky.descam.ui.activity.AuthActivity
 import com.captvelsky.descam.ui.model.SettingsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -37,6 +40,7 @@ class SettingsFragment : Fragment() {
         }
 
         darkMode()
+        initPrefInfo()
     }
 
     private fun darkMode() {
@@ -50,6 +54,22 @@ class SettingsFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 switch.isChecked = false
             }
+        }
+    }
+
+    private fun initPrefInfo() {
+        viewModel.viewModelScope.launch {
+            viewModel.getUserEmail().collect { email ->
+                binding.prefEmailTextView.text = email
+            }
+        }
+        binding.logoutButton.setOnClickListener { logout() }
+    }
+
+    private fun logout() {
+        viewModel.logout()
+        Intent(requireActivity(), AuthActivity::class.java).also {
+            startActivity(it)
         }
     }
 

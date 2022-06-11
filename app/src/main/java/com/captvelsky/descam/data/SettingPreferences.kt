@@ -35,6 +35,12 @@ class SettingPreferences @Inject constructor(private val dataStore: DataStore<Pr
         }
     }
 
+    suspend fun logout() {
+        dataStore.edit { preferences ->
+            preferences[USER_EMAIL] = ""
+        }
+    }
+
     companion object {
         private val THEME_KEY = booleanPreferencesKey("theme_setting")
         private var USER_EMAIL = stringPreferencesKey("user_email")

@@ -27,6 +27,10 @@ class AppRepository @Inject constructor(
         preferences.setUserEmail(email)
     }
 
+    suspend fun logout() {
+        preferences.logout()
+    }
+
     fun getUserEmail(): Flow<String?> = preferences.getUserEmail()
 
     suspend fun getUploadResult(

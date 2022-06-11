@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.viewModelScope
+import com.captvelsky.descam.R
 import com.captvelsky.descam.databinding.ActivityAuthBinding
 import com.captvelsky.descam.ui.activity.HomeActivity.Companion.EXTRA_EMAIL
 import com.captvelsky.descam.ui.model.AuthViewModel
@@ -31,13 +32,17 @@ class AuthActivity : AppCompatActivity() {
     private fun loginAuth() {
         val email = binding.etEmail.text.toString()
 
-        viewModel.viewModelScope.launch {
-            viewModel.saveUserEmail(email)
-            Intent(this@AuthActivity, HomeActivity::class.java).also {
-                it.putExtra(EXTRA_EMAIL, email)
-                startActivity(it)
-                finish()
+        if (binding.etEmail.error == null && email != "") {
+            viewModel.viewModelScope.launch {
+                viewModel.saveUserEmail(email)
+                Intent(this@AuthActivity, HomeActivity::class.java).also {
+                    it.putExtra(EXTRA_EMAIL, email)
+                    startActivity(it)
+                    finish()
+                }
             }
+        } else {
+            Toast.makeText(this@AuthActivity, resources.getString(R.string.textinput_email_warning), Toast.LENGTH_SHORT).show()
         }
     }
 }
