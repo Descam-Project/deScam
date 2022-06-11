@@ -3,6 +3,7 @@ package com.captvelsky.descam.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.captvelsky.descam.data.remote.ApiService
+import com.captvelsky.descam.data.remote.response.SendTextResponse
 import com.captvelsky.descam.data.remote.response.TextUploadResponse
 import com.captvelsky.descam.data.remote.response.UploadRequest
 import kotlinx.coroutines.flow.Flow
@@ -28,13 +29,24 @@ class AppRepository @Inject constructor(
 
     fun getUserEmail(): Flow<String?> = preferences.getUserEmail()
 
-    suspend fun uploadText(
+    suspend fun getUploadResult(
         email: String,
         text: String,
         result: String
     ): Flow<Result<TextUploadResponse>> = flow {
         try {
-            val response = apiService.uploadText(UploadRequest(email, text, result))
+            val response = apiService.uploadResponse(UploadRequest(email, text, result))
+            emit(Result.success(response))
+        } catch (e: Exception) {
+            emit(Result.failure(e))
+        }
+    }
+
+    suspend fun sendText(
+        input: String
+    ): Flow<Result<SendTextResponse>> = flow {
+        try {
+            val response = apiService.sendText(input)
             emit(Result.success(response))
         } catch (e: Exception) {
             emit(Result.failure(e))
