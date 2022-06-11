@@ -7,9 +7,12 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.viewModelScope
 import com.captvelsky.descam.databinding.ActivityMainBinding
+import com.captvelsky.descam.ui.activity.HomeActivity.Companion.EXTRA_EMAIL
 import com.captvelsky.descam.ui.model.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -29,11 +32,28 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+
         Handler(Looper.getMainLooper()).postDelayed({
-            Intent(this, AuthActivity::class.java).also {
-                startActivity(it)
-                finish()
-            }
+            userAuth()
         }, 2000)
+    }
+
+    private fun userAuth() {
+        viewModel.viewModelScope.launch {
+            viewModel.getUserEmail().collect { email ->
+                if (email.isNullOrEmpty()) {
+                    Intent(this@MainActivity, AuthActivity::class.java).also {
+                        startActivity(it)
+                        finish()
+                    }
+                } else {
+                    Intent(this@MainActivity, HomeActivity::class.java).also {
+                        intent.putExtra(EXTRA_EMAIL, email)
+                        startActivity(it)
+                        finish()
+                    }
+                }
+            }
+        }
     }
 }

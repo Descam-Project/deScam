@@ -2,6 +2,7 @@ package com.captvelsky.descam.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class AppRepository @Inject constructor(
@@ -14,4 +15,10 @@ class AppRepository @Inject constructor(
     suspend fun setTheme(state: Boolean) {
         preferences.saveThemeSetting(state)
     }
+
+    suspend fun setUserEmail(email: String) {
+        preferences.setUserEmail(email)
+    }
+
+    fun getUserEmail(): Flow<String?> = preferences.getUserEmail()
 }

@@ -2,6 +2,7 @@ package com.captvelsky.descam.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.captvelsky.descam.R
@@ -30,4 +31,9 @@ class HomeActivity : AppCompatActivity() {
         val count = supportFragmentManager.backStackEntryCount
         if (count == 0) super.onBackPressed() else supportFragmentManager.popBackStack()
     }
+
+    companion object {
+        const val EXTRA_EMAIL = "extra_email"
+    }
+
 }

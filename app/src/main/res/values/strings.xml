@@ -17,4 +17,5 @@
     <string name="checked_text">Lorem ipsum dolor sit amet</string>
     <string name="status">Status :</string>
     <string name="status_value">Legal/Illegal</string>
+    <string name="textinput_email_warning">Invalid Email</string>
 </resources>
