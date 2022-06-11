@@ -21,7 +21,7 @@
         <entry key="..\:/Projects/deScam/app/src/main/res/drawable/tab_background_indicator.xml" value="0.12" />
         <entry key="..\:/Projects/deScam/app/src/main/res/drawable/tab_corner_bg.xml" value="0.1025" />
         <entry key="..\:/Projects/deScam/app/src/main/res/drawable/tab_indicator_corner_bg.xml" value="0.1" />
-        <entry key="..\:/Projects/deScam/app/src/main/res/layout/activity_auth.xml" value="0.17552083333333332" />
+        <entry key="..\:/Projects/deScam/app/src/main/res/layout/activity_auth.xml" value="0.22" />
         <entry key="..\:/Projects/deScam/app/src/main/res/layout/activity_home.xml" value="0.12681159420289856" />
         <entry key="..\:/Projects/deScam/app/src/main/res/layout/activity_main.xml" value="0.12681159420289856" />
         <entry key="..\:/Projects/deScam/app/src/main/res/layout/fragment_gallery.xml" value="0.14130434782608695" />
@@ -34,12 +34,9 @@
         <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/activity_temp_scan.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/fragment_gallery.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/fragment_result.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/fragment_scan.xml" value="0.33" />
         <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/fragment_settings.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/fragment_text.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Prad/Documents/Kuliah/Bangkit/Projects/Capstone/deScam/app/src/main/res/layout/item_note.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>
