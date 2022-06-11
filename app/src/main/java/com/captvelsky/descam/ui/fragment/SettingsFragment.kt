@@ -70,6 +70,7 @@ class SettingsFragment : Fragment() {
         viewModel.logout()
         Intent(requireActivity(), AuthActivity::class.java).also {
             startActivity(it)
+            requireActivity().finish()
         }
     }
 
