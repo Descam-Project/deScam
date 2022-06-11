@@ -2,11 +2,17 @@ package com.captvelsky.descam.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import com.captvelsky.descam.data.remote.ApiService
+import com.captvelsky.descam.data.remote.response.TextUploadResponse
+import com.captvelsky.descam.data.remote.response.UploadRequest
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import java.lang.Exception
 import javax.inject.Inject
 
 class AppRepository @Inject constructor(
-    private val preferences: SettingPreferences
+    private val preferences: SettingPreferences,
+    private val apiService: ApiService
 ) {
     fun getTheme(): LiveData<Boolean> {
         return preferences.getThemeSetting().asLiveData()
@@ -21,4 +27,17 @@ class AppRepository @Inject constructor(
     }
 
     fun getUserEmail(): Flow<String?> = preferences.getUserEmail()
+
+    suspend fun uploadText(
+        email: String,
+        text: String,
+        result: String
+    ): Flow<Result<TextUploadResponse>> = flow {
+        try {
+            val response = apiService.uploadText(UploadRequest(email, text, result))
+            emit(Result.success(response))
+        } catch (e: Exception) {
+            emit(Result.failure(e))
+        }
+    }
 }
