@@ -12,7 +12,7 @@ interface ApiService {
         @Body request: UploadRequest
     ) : TextUploadResponse
 
-    @POST("classifiermodel-k5eyux7eqa-et.a.run.app/descam/predict")
+    @POST("descam/predict")
     suspend fun sendText(
         @Field("input") input: String
     ) : SendTextResponse
