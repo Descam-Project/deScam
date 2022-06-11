@@ -8,7 +8,6 @@ data class TextUploadResponse(
 
     @field: SerializedName("message")
     val message: String,
-
 )
 
 data class UploadRequest(
@@ -20,4 +19,12 @@ data class UploadRequest(
 
     @field:SerializedName("Result")
     val result: String
+)
+
+data class SendTextResponse(
+    @field:SerializedName("error")
+    val error: Boolean,
+
+    @field: SerializedName("message")
+    val message: String,
 )

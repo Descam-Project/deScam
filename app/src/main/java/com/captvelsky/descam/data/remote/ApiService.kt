@@ -1,16 +1,19 @@
 package com.captvelsky.descam.data.remote
 
+import com.captvelsky.descam.data.remote.response.SendTextResponse
 import com.captvelsky.descam.data.remote.response.TextUploadResponse
 import com.captvelsky.descam.data.remote.response.UploadRequest
-import retrofit2.http.Body
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
     @POST("descamproject.et.r.appspot.com/History/addHistory")
-    suspend fun uploadText(
+    suspend fun uploadResponse(
         @Body request: UploadRequest
     ) : TextUploadResponse
+
+    @POST("classifiermodel-k5eyux7eqa-et.a.run.app/descam/predict")
+    suspend fun sendText(
+        @Field("input") input: String
+    ) : SendTextResponse
 }
