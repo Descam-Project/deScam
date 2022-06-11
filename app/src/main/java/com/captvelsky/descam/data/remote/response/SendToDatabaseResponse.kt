@@ -2,7 +2,7 @@ package com.captvelsky.descam.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class TextUploadResponse(
+data class SendToDatabaseResponse(
     @field:SerializedName("error")
     val error: Boolean,
 
@@ -10,7 +10,7 @@ data class TextUploadResponse(
     val message: String,
 )
 
-data class UploadRequest(
+data class ScanResult(
     @field:SerializedName("Email")
     val email: String,
 
@@ -21,7 +21,7 @@ data class UploadRequest(
     val result: String
 )
 
-data class SendTextResponse(
+data class ScannedTextResponse(
     @field:SerializedName("error")
     val error: Boolean,
 
