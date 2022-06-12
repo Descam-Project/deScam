@@ -151,8 +151,8 @@ class GalleryFragment : Fragment() {
             binding?.extractedTextCardView?.visibility = View.GONE
         } else {
             binding?.openGalleryButton?.text = resources.getString(R.string.choose_another_picture)
-            binding?.extractTextButton?.visibility = View.GONE
-            binding?.extractedTextCardView?.visibility = View.GONE
+            binding?.extractTextButton?.visibility = View.VISIBLE
+            binding?.extractedTextCardView?.visibility = View.VISIBLE
         }
     }
 
