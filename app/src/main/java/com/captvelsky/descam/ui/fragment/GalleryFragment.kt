@@ -23,7 +23,6 @@ import com.captvelsky.descam.ui.model.GalleryViewModel
 import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.text.TextRecognizer
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.io.File
 import java.lang.StringBuilder
@@ -58,7 +57,7 @@ class GalleryFragment : Fragment() {
 
     private fun setupButon() {
         binding?.openGalleryButton?.setOnClickListener { openGallery() }
-        binding?.uploadButtonImageView?.setOnClickListener { uploadPicture() }
+        binding?.uploadButtonImageView?.setOnClickListener { uploadTextToModel() }
         binding?.extractTextButton?.setOnClickListener { extractText(bitmap) }
     }
 
@@ -84,23 +83,36 @@ class GalleryFragment : Fragment() {
         }
     }
 
-    private fun uploadPicture() {
+    private fun uploadTextToModel() {
         // Fungsi upload diletakkan di sini
-        Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
+        viewModel.viewModelScope.launch {
+            viewModel.sendTextToModel(text).collect { response ->
+                response.onSuccess {
+                    val result = it.output
 
-        sendResultToLocalDatabase(/*String hasil response*/)
+                    viewModel.getUserEmail().collect { email ->
+                        viewModel.sendResultToDatabase(email!!, text, result)
+                    }
+                    sendResultToLocalDatabase(result)
+                }
+
+                response.onFailure {
+                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
-    private fun sendResultToLocalDatabase(/*result: String*/) {
+    private fun sendResultToLocalDatabase(result: String) {
         // Fungsi setelah mendapatkan response dari server diletakkan di sini
         viewModel.viewModelScope.launch {
             viewModel.getUserEmail().collect { email ->
                 scanResult.let { scanResult ->
                     scanResult?.email = email!!
                     scanResult?.text = text
-                    //scanResult?.result = result
+                    scanResult?.result = result
                 }
-                viewModel.insert(scanResult as ScanResultLocalObject)
+                viewModel.insertToLocalDatabase(scanResult as ScanResultLocalObject)
                 Toast.makeText(requireActivity(), resources.getString(R.string.result_added), Toast.LENGTH_SHORT).show()
             }
         }
