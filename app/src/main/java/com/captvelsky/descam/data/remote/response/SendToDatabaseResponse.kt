@@ -4,10 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class SendToDatabaseResponse(
     @field:SerializedName("error")
-    val error: Boolean,
+    val error: String,
+
+    @field: SerializedName("status")
+    val status: String,
 
     @field: SerializedName("message")
-    val message: String,
+    val message: String
 )
 
 data class ScanResult(
@@ -22,9 +25,9 @@ data class ScanResult(
 )
 
 data class ScannedTextResponse(
-    @field:SerializedName("error")
-    val error: Boolean,
+    @field:SerializedName("output")
+    val output: String,
 
-    @field: SerializedName("message")
-    val message: String,
+    @field: SerializedName("success")
+    val success: Boolean,
 )
