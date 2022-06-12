@@ -5,7 +5,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.captvelsky.descam.data.remote.ApiConfig
-import com.captvelsky.descam.data.remote.ApiService
+import com.captvelsky.descam.data.remote.ApiServiceDatabase
+import com.captvelsky.descam.data.remote.ApiServiceModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,5 +24,8 @@ object AppModule {
         context.dataStore
 
     @Provides
-    fun provideApiService(): ApiService = ApiConfig.getApiService()
+    fun provideApiServiceModel(): ApiServiceModel = ApiConfig.getApiServiceModel()
+
+    @Provides
+    fun provideApiServiceDatabase(): ApiServiceDatabase = ApiConfig.getApiServiceDatabase()
 }
