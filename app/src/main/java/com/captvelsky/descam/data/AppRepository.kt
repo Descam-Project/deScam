@@ -2,7 +2,8 @@ package com.captvelsky.descam.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
-import com.captvelsky.descam.data.remote.ApiService
+import com.captvelsky.descam.data.remote.ApiServiceDatabase
+import com.captvelsky.descam.data.remote.ApiServiceModel
 import com.captvelsky.descam.data.remote.response.ScannedTextResponse
 import com.captvelsky.descam.data.remote.response.SendToDatabaseResponse
 import com.captvelsky.descam.data.remote.response.ScanResult
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 class AppRepository @Inject constructor(
     private val preferences: SettingPreferences,
-    private val apiService: ApiService
+    private val apiServiceModel: ApiServiceModel,
+    private val apiServiceDatabase: ApiServiceDatabase
 ) {
     fun getTheme(): LiveData<Boolean> {
         return preferences.getThemeSetting().asLiveData()
@@ -39,7 +41,7 @@ class AppRepository @Inject constructor(
         result: String
     ): Flow<Result<SendToDatabaseResponse>> = flow {
         try {
-            val response = apiService.sendScanResultToDatabase(ScanResult(email, text, result))
+            val response = apiServiceDatabase.sendScanResultToDatabase(ScanResult(email, text, result))
             emit(Result.success(response))
         } catch (e: Exception) {
             emit(Result.failure(e))
@@ -50,7 +52,7 @@ class AppRepository @Inject constructor(
         input: String
     ): Flow<Result<ScannedTextResponse>> = flow {
         try {
-            val response = apiService.sendTextToScan(input)
+            val response = apiServiceModel.sendTextToScan(input)
             emit(Result.success(response))
         } catch (e: Exception) {
             emit(Result.failure(e))
