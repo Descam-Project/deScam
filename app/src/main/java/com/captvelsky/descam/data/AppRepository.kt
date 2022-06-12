@@ -35,7 +35,7 @@ class AppRepository @Inject constructor(
 
     fun getUserEmail(): Flow<String?> = preferences.getUserEmail()
 
-    suspend fun getUploadResult(
+    suspend fun sendScanResult(
         email: String,
         text: String,
         result: String
