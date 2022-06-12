@@ -39,6 +39,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="top"
@@ -59,7 +60,7 @@
 <!--        app:layout_constraintStart_toStartOf="@+id/guideline1" />-->
 
     <ImageView
-        android:id="@+id/btn_upload"
+        android:id="@+id/uploadButtonImageView"
         android:layout_width="74dp"
         android:layout_height="76dp"
         android:layout_marginBottom="24dp"

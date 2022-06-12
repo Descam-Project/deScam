@@ -29,5 +29,10 @@ data class ScannedTextResponse(
     val output: String,
 
     @field: SerializedName("success")
-    val success: Boolean,
+    val success: Boolean
+)
+
+data class ScanRequest(
+    @field:SerializedName("text")
+    val text: String
 )

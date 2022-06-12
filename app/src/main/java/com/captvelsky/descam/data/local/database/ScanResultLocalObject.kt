@@ -14,11 +14,11 @@ data class ScanResultLocalObject(
     var id: Int = 0,
 
     @ColumnInfo(name = "email")
-    var email: String,
+    var email: String? = null,
 
     @ColumnInfo(name = "text")
-    var text: String,
+    var text: String? = null,
 
     @ColumnInfo(name = "result")
-    var result: String
+    var result: String? = null
 ) : Parcelable

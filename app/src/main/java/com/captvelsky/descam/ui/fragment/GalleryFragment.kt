@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ import com.captvelsky.descam.ui.model.GalleryViewModel
 import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.text.TextRecognizer
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.io.File
 import java.lang.StringBuilder
@@ -44,7 +46,6 @@ class GalleryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -84,31 +85,38 @@ class GalleryFragment : Fragment() {
     }
 
     private fun uploadTextToModel() {
-        // Fungsi upload diletakkan di sini
         viewModel.viewModelScope.launch {
             viewModel.sendTextToModel(text).collect { response ->
                 response.onSuccess {
                     val result = it.output
 
                     viewModel.getUserEmail().collect { email ->
-                        viewModel.sendResultToDatabase(email!!, text, result)
+                        viewModel.sendResultToDatabase(email.toString(), text, result).collect {
+                            response.onSuccess {
+                                sendResultToLocalDatabase(result)
+                            }
+
+                            response.onFailure {
+                                Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     }
-                    sendResultToLocalDatabase(result)
                 }
 
                 response.onFailure {
                     Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT).show()
+                    Log.e("Error", it.message.toString())
                 }
             }
         }
     }
 
     private fun sendResultToLocalDatabase(result: String) {
-        // Fungsi setelah mendapatkan response dari server diletakkan di sini
         viewModel.viewModelScope.launch {
             viewModel.getUserEmail().collect { email ->
+                scanResult = ScanResultLocalObject()
                 scanResult.let { scanResult ->
-                    scanResult?.email = email!!
+                    scanResult?.email = email
                     scanResult?.text = text
                     scanResult?.result = result
                 }
@@ -129,11 +137,11 @@ class GalleryFragment : Fragment() {
             textBlockSparseArray.forEach { _, value ->
                 val textBlock = value
                 stringBuilder.append(textBlock.value)
-                stringBuilder.append("\n")
+                stringBuilder.append(" ")
             }
             text = stringBuilder.toString()
-            binding?.extractedTextTextView?.text = stringBuilder.toString()
-            binding?.uploadButtonImageView?.visibility = View.VISIBLE
+            binding?.extractedTextTextView?.text = text
+            showUploadButton()
         }
     }
 
@@ -146,5 +154,9 @@ class GalleryFragment : Fragment() {
             binding?.extractTextButton?.visibility = View.VISIBLE
             binding?.extractedTextCardView?.visibility = View.VISIBLE
         }
+    }
+
+    private fun showUploadButton() {
+        binding?.uploadButtonImageView?.visibility = View.VISIBLE
     }
 }
