@@ -4,7 +4,10 @@ import androidx.recyclerview.widget.DiffUtil
 import com.captvelsky.descam.data.local.database.ScanResultLocalObject
 
 class ScanResultDiffCallback
-    (private val mOldScanResultList: List<ScanResultLocalObject>, private val mNewScanResultList: List<ScanResultLocalObject>) : DiffUtil.Callback() {
+    (
+    private val mOldScanResultList: List<ScanResultLocalObject>,
+    private val mNewScanResultList: List<ScanResultLocalObject>
+) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return mOldScanResultList.size
     }

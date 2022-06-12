@@ -7,11 +7,11 @@
     android:background="@color/bg_color"
     tools:context=".ui.fragment.ResultFragment">
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/scanResultRecyclerView"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       app:layout_behavior="@string/appbar_scrolling_view_behavior"
-       tools:listitem="@layout/item_scan_result"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scanResultRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_scan_result" />
 
 </FrameLayout>

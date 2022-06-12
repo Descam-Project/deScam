@@ -56,7 +56,11 @@ class TextFragment : Fragment() {
                                 }
 
                                 response.onFailure {
-                                    Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        requireActivity(),
+                                        it.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                             }
                         }
@@ -69,7 +73,11 @@ class TextFragment : Fragment() {
                 }
             }
         } else {
-            Toast.makeText(requireActivity(), resources.getString(R.string.empty_input_warning), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireActivity(),
+                resources.getString(R.string.empty_input_warning),
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
     }
@@ -84,7 +92,11 @@ class TextFragment : Fragment() {
                     scanResult?.result = result
                 }
                 viewModel.insertToLocalDatabase(scanResult as ScanResultLocalObject)
-                Toast.makeText(requireActivity(), resources.getString(R.string.result_added), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireActivity(),
+                    resources.getString(R.string.result_added),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

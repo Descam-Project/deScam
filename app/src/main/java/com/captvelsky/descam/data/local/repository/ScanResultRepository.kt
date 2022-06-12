@@ -17,7 +17,8 @@ class ScanResultRepository(application: Application) {
         mScanResultDao = db.scanResultDao()
     }
 
-    fun getAllScanResult(): LiveData<List<ScanResultLocalObject>> = mScanResultDao.getAllScanResult()
+    fun getAllScanResult(): LiveData<List<ScanResultLocalObject>> =
+        mScanResultDao.getAllScanResult()
 
     fun insert(scanResultLocalObject: ScanResultLocalObject) {
         executorService.execute { mScanResultDao.insert(scanResultLocalObject) }

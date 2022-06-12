@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.captvelsky.descam.R
 import com.captvelsky.descam.data.local.database.ScanResultLocalObject
 import com.captvelsky.descam.databinding.ItemScanResultBinding
 import com.captvelsky.descam.helper.ScanResultDiffCallback
@@ -22,7 +21,8 @@ class ScanResultAdapter : RecyclerView.Adapter<ScanResultAdapter.ScanResultViewH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScanResultViewHolder {
-        val binding = ItemScanResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemScanResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ScanResultViewHolder(binding)
     }
 
@@ -34,7 +34,8 @@ class ScanResultAdapter : RecyclerView.Adapter<ScanResultAdapter.ScanResultViewH
         return listScanResults.size
     }
 
-    inner class ScanResultViewHolder(private val binding: ItemScanResultBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ScanResultViewHolder(private val binding: ItemScanResultBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(scanResult: ScanResultLocalObject) {
             with(binding) {
                 emailTextView.text = scanResult.email

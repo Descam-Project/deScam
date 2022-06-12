@@ -34,7 +34,7 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getAllScanResult().observe(requireActivity(), { scanResultList ->
-            if (scanResultList != null){
+            if (scanResultList != null) {
                 adapter.setListScanResults(scanResultList)
             }
         })

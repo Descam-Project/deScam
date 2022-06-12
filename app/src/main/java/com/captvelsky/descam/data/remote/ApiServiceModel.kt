@@ -7,16 +7,15 @@ import com.captvelsky.descam.data.remote.response.SendToDatabaseResponse
 import retrofit2.http.*
 
 interface ApiServiceModel {
-    //@FormUrlEncoded
     @POST("descam/predict")
     suspend fun sendTextToScan(
         @Body text: ScanRequest
-    ) : ScannedTextResponse
+    ): ScannedTextResponse
 }
 
 interface ApiServiceDatabase {
     @POST("History/addHistory")
     suspend fun sendScanResultToDatabase(
         @Body request: ScanResult
-    ) : SendToDatabaseResponse
+    ): SendToDatabaseResponse
 }

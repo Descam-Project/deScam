@@ -24,7 +24,6 @@ import com.captvelsky.descam.ui.model.GalleryViewModel
 import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.text.TextRecognizer
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.io.File
 import java.lang.StringBuilder
@@ -97,7 +96,8 @@ class GalleryFragment : Fragment() {
                             }
 
                             response.onFailure {
-                                Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireActivity(), it.message, Toast.LENGTH_SHORT)
+                                    .show()
                             }
                         }
                     }
@@ -121,7 +121,11 @@ class GalleryFragment : Fragment() {
                     scanResult?.result = result
                 }
                 viewModel.insertToLocalDatabase(scanResult as ScanResultLocalObject)
-                Toast.makeText(requireActivity(), resources.getString(R.string.result_added), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireActivity(),
+                    resources.getString(R.string.result_added),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

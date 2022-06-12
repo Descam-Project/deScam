@@ -42,7 +42,11 @@ class AuthActivity : AppCompatActivity() {
                 }
             }
         } else {
-            Toast.makeText(this@AuthActivity, resources.getString(R.string.textinput_email_warning), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@AuthActivity,
+                resources.getString(R.string.textinput_email_warning),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
