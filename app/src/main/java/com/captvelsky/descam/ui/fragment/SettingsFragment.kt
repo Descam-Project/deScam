@@ -13,7 +13,6 @@ import com.captvelsky.descam.databinding.FragmentSettingsBinding
 import com.captvelsky.descam.ui.activity.AuthActivity
 import com.captvelsky.descam.ui.model.SettingsViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

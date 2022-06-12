@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [ScanResultLocalObject::class], version = 2, exportSchema = false)
 abstract class ScanResultRoomDatabase : RoomDatabase() {
-    abstract fun scanResultDao() : ScanResultDao
+    abstract fun scanResultDao(): ScanResultDao
 
     companion object {
         @Volatile
@@ -25,19 +25,6 @@ abstract class ScanResultRoomDatabase : RoomDatabase() {
                     .build()
                     .also { INSTANCE = it }
             }
-        /*if (INSTANCE == null) {
-                synchronized(ScanResultRoomDatabase::class.java) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        ScanResultRoomDatabase::class.java,
-                        "scan_result_database"
-                    )
-                        .fallbackToDestructiveMigration()
-                        .build()
-                        .also { INSTANCE = it }
-                }
-            }*/
-            //return INSTANCE as ScanResultRoomDatabase
         }
     }
 }

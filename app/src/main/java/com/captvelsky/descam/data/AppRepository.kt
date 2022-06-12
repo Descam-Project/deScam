@@ -42,7 +42,8 @@ class AppRepository @Inject constructor(
         result: String
     ): Flow<Result<SendToDatabaseResponse>> = flow {
         try {
-            val response = apiServiceDatabase.sendScanResultToDatabase(ScanResult(email, text, result))
+            val response =
+                apiServiceDatabase.sendScanResultToDatabase(ScanResult(email, text, result))
             emit(Result.success(response))
         } catch (e: Exception) {
             emit(Result.failure(e))

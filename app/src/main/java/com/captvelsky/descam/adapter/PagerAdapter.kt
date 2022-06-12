@@ -1,9 +1,7 @@
 package com.captvelsky.descam.adapter
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.captvelsky.descam.ui.fragment.GalleryFragment
 import com.captvelsky.descam.ui.fragment.ScanFragment
