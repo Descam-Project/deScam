@@ -27,7 +27,7 @@
 
         <ImageView
             android:id="@+id/previewImageView"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="250dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/ic_baseline_image_24"
@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/openGalleryButton"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/choose_picture"
@@ -49,12 +49,12 @@
 
         <Button
             android:id="@+id/extractTextButton"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:text="@string/extract_text"
             android:textColor="@color/white"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="@+id/guideline1"
@@ -62,29 +62,24 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/extractedTextCardView"
-            android:layout_width="250dp"
-            android:layout_height="160dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:cardBackgroundColor="@color/text_bg"
-            app:cardCornerRadius="15dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/extractTextButton">
 
-            <ScrollView
+            <TextView
+                android:id="@+id/extractedTextTextView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/extractedTextTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="@string/extracted_text_result"
-                    android:textColor="@color/text_color"
-                    android:textSize="14sp" />
-            </ScrollView>
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/extracted_text_result"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
 
         </androidx.cardview.widget.CardView>
 
@@ -93,7 +88,7 @@
             android:layout_width="74dp"
             android:layout_height="76dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:src="@drawable/ic_baseline_cloud_upload_24"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"

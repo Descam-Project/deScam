@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.captvelsky.descam.data.remote.ApiServiceDatabase
 import com.captvelsky.descam.data.remote.ApiServiceModel
+import com.captvelsky.descam.data.remote.response.ScanRequest
 import com.captvelsky.descam.data.remote.response.ScannedTextResponse
 import com.captvelsky.descam.data.remote.response.SendToDatabaseResponse
 import com.captvelsky.descam.data.remote.response.ScanResult
@@ -52,7 +53,7 @@ class AppRepository @Inject constructor(
         input: String
     ): Flow<Result<ScannedTextResponse>> = flow {
         try {
-            val response = apiServiceModel.sendTextToScan(input)
+            val response = apiServiceModel.sendTextToScan(ScanRequest(input))
             emit(Result.success(response))
         } catch (e: Exception) {
             emit(Result.failure(e))

@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ScanResultLocalObject::class], version = 1)
+@Database(entities = [ScanResultLocalObject::class], version = 2, exportSchema = false)
 abstract class ScanResultRoomDatabase : RoomDatabase() {
     abstract fun scanResultDao() : ScanResultDao
 
@@ -15,16 +15,29 @@ abstract class ScanResultRoomDatabase : RoomDatabase() {
 
         @JvmStatic
         fun getDatabase(context: Context): ScanResultRoomDatabase {
-            if (INSTANCE == null) {
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: Room.databaseBuilder(
+                    context.applicationContext,
+                    ScanResultRoomDatabase::class.java,
+                    "scan_result_database"
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
+                    .also { INSTANCE = it }
+            }
+        /*if (INSTANCE == null) {
                 synchronized(ScanResultRoomDatabase::class.java) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         ScanResultRoomDatabase::class.java,
                         "scan_result_database"
-                    ).build()
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
+                        .also { INSTANCE = it }
                 }
-            }
-            return INSTANCE as ScanResultRoomDatabase
+            }*/
+            //return INSTANCE as ScanResultRoomDatabase
         }
     }
 }

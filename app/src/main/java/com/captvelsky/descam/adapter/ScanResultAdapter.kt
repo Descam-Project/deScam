@@ -40,10 +40,10 @@ class ScanResultAdapter : RecyclerView.Adapter<ScanResultAdapter.ScanResultViewH
                 emailTextView.text = scanResult.email
                 checkedTextTextView.text = scanResult.text
                 statusValueTextView.text = scanResult.result
-                if (scanResult.result == "legal") {
-                    statusValueTextView.setTextColor(Color.parseColor(R.color.legal_color.toString()))
+                if (scanResult.result == "Legal") {
+                    statusValueTextView.setTextColor(Color.GREEN)
                 } else {
-                    statusValueTextView.setTextColor(Color.parseColor(R.color.illegal_color.toString()))
+                    statusValueTextView.setTextColor(Color.RED)
                 }
             }
         }
